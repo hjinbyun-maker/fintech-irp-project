@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KCCN9F5X');</script>
+<!-- End Google Tag Manager -->
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -61,4 +68,125 @@
         }
     </script>
 </body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCCN9F5X"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- CTA Section -->
+<section id="cta-section" style="padding:40px; text-align:center;">
+  <h2>IRP 최적 비교 알림 받기</h2>
+  <p>출시 시 가장 먼저 알림을 받고 싶다면 이메일을 입력해주세요.</p>
+
+  <button id="ctaButton"
+    style="padding:15px 25px; font-size:18px; background:#0066ff; color:white; border-radius:10px; border:none; cursor:pointer;">
+    알림 받기
+  </button>
+</section>
+
+<!-- Hidden Form Modal -->
+<div id="formModal" 
+     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+     background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
+  
+  <div style="background:white; padding:30px; border-radius:12px; width:90%; max-width:400px;">
+    <h3>이메일을 입력해주세요</h3>
+
+    <input id="userEmail" 
+           type="email" 
+           placeholder="example@email.com"
+           style="padding:12px; width:100%; margin-top:10px; border-radius:8px; border:1px solid #ccc;" />
+
+    <button id="submitEmail"
+      style="margin-top:15px; padding:12px; width:100%; background:#0066ff; color:white;
+      border:none; border-radius:8px; cursor:pointer;">
+      제출
+    </button>
+
+    <button id="closeModal"
+      style="margin-top:10px; padding:8px; width:100%; background:#ddd; border-radius:8px;">
+      닫기
+    </button>
+  </div>
+</div>
+
+<!-- 성공 메시지 -->
+<div id="successToast"
+     style="display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%);
+     padding:15px 25px; background:#4caf50; color:white; border-radius:8px;">
+  제출 완료! 출시 시 가장 먼저 알려드릴게요 😊
+</div>
+
 </html>
+<script>
+// ----------------------
+// 1. UTM 파라미터 추출
+// ----------------------
+const urlParams = new URLSearchParams(window.location.search);
+const utm_source = urlParams.get("utm_source") || "none";
+const utm_medium = urlParams.get("utm_medium") || "none";
+const utm_campaign = urlParams.get("utm_campaign") || "none";
+
+// ----------------------
+// 2. 요소 선택
+// ----------------------
+const ctaButton = document.getElementById("ctaButton");
+const formModal = document.getElementById("formModal");
+const submitEmail = document.getElementById("submitEmail");
+const closeModal = document.getElementById("closeModal");
+const userEmail = document.getElementById("userEmail");
+const toast = document.getElementById("successToast");
+
+// ----------------------
+// 3. CTA 버튼 클릭 이벤트
+// ----------------------
+ctaButton.addEventListener("click", () => {
+  formModal.style.display = "flex";
+
+  // GA 이벤트 (Google Analytics)
+  if (typeof gtag === "function") {
+    gtag('event', 'cta_click', {
+      event_category: 'engagement',
+      event_label: 'CTA Button Click',
+      utm_source, utm_medium, utm_campaign
+    });
+  }
+});
+
+// ----------------------
+// 4. 이메일 제출 이벤트
+// ----------------------
+submitEmail.addEventListener("click", () => {
+  const email = userEmail.value.trim();
+  if (!email) {
+    alert("이메일을 입력해주세요!");
+    return;
+  }
+
+  // 제출 이벤트 트래킹
+  if (typeof gtag === "function") {
+    gtag('event', 'form_submit', {
+      event_category: 'conversion',
+      event_label: 'Email Submit',
+      email,
+      utm_source, utm_medium, utm_campaign
+    });
+  }
+
+  // 콘솔 로그(검증용)
+  console.log("Email submitted:", email, utm_source, utm_campaign);
+
+  // 성공 메시지 표시
+  formModal.style.display = "none";
+  toast.style.display = "block";
+  setTimeout(() => toast.style.display = "none", 3500);
+
+  userEmail.value = "";
+});
+
+// ----------------------
+// 5. 모달 닫기
+// ----------------------
+closeModal.addEventListener("click", () => {
+  formModal.style.display = "none";
+});
+</script>
