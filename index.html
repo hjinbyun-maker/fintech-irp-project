@@ -1,59 +1,75 @@
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KCCN9F5X');</script>
-<!-- End Google Tag Manager -->
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IRP AI Comparison Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script defer src="/_vercel/insights/script.js"></script> 
+
+    <!-- Google Tag Manager -->
+    <script>(function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KCCN9F5X');</script>
+    <!-- End Google Tag Manager -->
+
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
+
 <body class="bg-gray-50 text-gray-800 font-sans">
 
+    <!-- Navigation -->
     <nav class="w-full p-6 flex justify-between items-center bg-white shadow-sm">
-        <div class="font-bold text-xl text-blue-600">IRP Doctor </div>
+        <div class="font-bold text-xl text-blue-600">IRP Doctor</div>
         <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
             Pre-register
         </button>
     </nav>
 
+    <!-- Hero Section -->
     <header class="text-center py-20 px-4">
         <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
             Same IRP Account... <br>
             <span class="text-blue-600">Annual Return 1% vs 6%?</span>
         </h1>
-        
+
         <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto font-medium">
             Discover the reason for the gap right now.
         </p>
-        
-        <button onclick="handleClick()" class="bg-blue-600 text-white text-lg md:text-xl font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-1">
+
+        <button onclick="handleClick()"
+            class="bg-blue-600 text-white text-lg md:text-xl font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-1">
             Compare IRP Returns & Get Tax Benefits ➔
         </button>
+
         <p class="mt-4 text-sm text-gray-500">* Redirects to beta service notification signup.</p>
     </header>
 
+    <!-- Feature Section -->
     <section class="max-w-4xl mx-auto py-16 px-4">
         <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
             <h2 class="text-2xl font-bold mb-6 text-center">Why Choose Us?</h2>
+
             <div class="grid grid-cols-3 gap-4 text-center border-b pb-4 mb-4 font-bold text-gray-500">
                 <div>Feature</div>
                 <div>Traditional Bank Apps</div>
                 <div class="text-blue-600">Our Service</div>
             </div>
-            <div class="grid grid-cols-3 gap-4 text-center items-center py-2">
+
+            <div class="grid grid-cols-3 gap-6 text-center items-center py-3">
                 <div class="font-bold text-gray-700">Return Comparison</div>
                 <div class="text-gray-400">Difficult / Complex</div>
                 <div class="text-blue-600 font-bold">Check in 1 Second</div>
             </div>
-            <div class="grid grid-cols-3 gap-4 text-center items-center py-2 bg-gray-50 rounded-lg">
+
+            <div class="grid grid-cols-3 gap-6 text-center items-center py-3 bg-gray-50 rounded-lg">
                 <div class="font-bold text-gray-700">Portfolio</div>
                 <div class="text-gray-400">None</div>
                 <div class="text-blue-600 font-bold">AI Recommendation</div>
@@ -61,132 +77,104 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
     </section>
 
+    <!-- CTA Section (improved spacing & English text) -->
+    <section id="cta-section" class="text-center py-28 mt-10">
+        <h2 class="text-3xl font-bold mb-6 text-gray-900">
+            Get Notified About the Best IRP Comparison
+        </h2>
+
+        <p class="text-lg text-gray-600 mb-10">
+            Enter your email and be the first to receive updates when we launch.
+        </p>
+
+        <button id="ctaButton"
+            class="px-8 py-4 bg-blue-600 text-white text-xl font-semibold rounded-xl shadow-md hover:bg-blue-700 transition">
+            Notify Me
+        </button>
+    </section>
+
+    <!-- Modal -->
+    <div id="formModal"
+        class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center p-4 z-50">
+
+        <div class="bg-white p-8 rounded-2xl w-full max-w-sm shadow-lg">
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Enter Your Email</h3>
+
+            <input id="userEmail" type="email" placeholder="example@gmail.com"
+                class="w-full p-3 border rounded-lg mb-4">
+
+            <button id="submitEmail"
+                class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                Submit
+            </button>
+
+            <button id="closeModal"
+                class="w-full mt-3 bg-gray-200 py-2 rounded-lg text-gray-700 hover:bg-gray-300 transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="successToast"
+        class="hidden fixed bottom-8 left-1/2 transform -translate-x-1/2 px-6 py-3 bg-green-600 text-white rounded-lg shadow-lg">
+        Submission successful! We'll notify you soon.
+    </div>
+
+    <!-- JS Events -->
     <script>
         function handleClick() {
-            console.log("Button Clicked!"); 
-            alert("We are currently preparing the beta service.\nWould you like to receive a notification when it opens?");
+            alert("We are preparing the beta service.\nWould you like to receive a notification?");
         }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const utm_source = urlParams.get("utm_source") || "none";
+        const utm_medium = urlParams.get("utm_medium") || "none";
+        const utm_campaign = urlParams.get("utm_campaign") || "none";
+
+        const ctaButton = document.getElementById("ctaButton");
+        const formModal = document.getElementById("formModal");
+        const submitEmail = document.getElementById("submitEmail");
+        const closeModal = document.getElementById("closeModal");
+        const userEmail = document.getElementById("userEmail");
+        const toast = document.getElementById("successToast");
+
+        ctaButton.addEventListener("click", () => {
+            formModal.style.display = "flex";
+            if (typeof gtag === "function") {
+                gtag('event', 'cta_click', {
+                    event_category: 'engagement',
+                    utm_source, utm_medium, utm_campaign
+                });
+            }
+        });
+
+        submitEmail.addEventListener("click", () => {
+            const email = userEmail.value.trim();
+            if (!email) return alert("Please enter your email.");
+
+            if (typeof gtag === "function") {
+                gtag('event', 'form_submit', {
+                    event_category: 'conversion',
+                    email,
+                    utm_source, utm_medium, utm_campaign
+                });
+            }
+
+            formModal.style.display = "none";
+            toast.classList.remove("hidden");
+
+            setTimeout(() => toast.classList.add("hidden"), 3000);
+            userEmail.value = "";
+        });
+
+        closeModal.addEventListener("click", () => formModal.style.display = "none");
     </script>
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCCN9F5X" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
 </body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KCCN9F5X"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<!-- CTA Section -->
-<section id="cta-section" style="padding:40px; text-align:center;">
-  <h2>IRP 최적 비교 알림 받기</h2>
-  <p>출시 시 가장 먼저 알림을 받고 싶다면 이메일을 입력해주세요.</p>
-
-  <button id="ctaButton"
-    style="padding:15px 25px; font-size:18px; background:#0066ff; color:white; border-radius:10px; border:none; cursor:pointer;">
-    알림 받기
-  </button>
-</section>
-
-<!-- Hidden Form Modal -->
-<div id="formModal" 
-     style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-     background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
-  
-  <div style="background:white; padding:30px; border-radius:12px; width:90%; max-width:400px;">
-    <h3>이메일을 입력해주세요</h3>
-
-    <input id="userEmail" 
-           type="email" 
-           placeholder="example@email.com"
-           style="padding:12px; width:100%; margin-top:10px; border-radius:8px; border:1px solid #ccc;" />
-
-    <button id="submitEmail"
-      style="margin-top:15px; padding:12px; width:100%; background:#0066ff; color:white;
-      border:none; border-radius:8px; cursor:pointer;">
-      제출
-    </button>
-
-    <button id="closeModal"
-      style="margin-top:10px; padding:8px; width:100%; background:#ddd; border-radius:8px;">
-      닫기
-    </button>
-  </div>
-</div>
-
-<!-- 성공 메시지 -->
-<div id="successToast"
-     style="display:none; position:fixed; bottom:30px; left:50%; transform:translateX(-50%);
-     padding:15px 25px; background:#4caf50; color:white; border-radius:8px;">
-  제출 완료! 출시 시 가장 먼저 알려드릴게요 😊
-</div>
-
 </html>
-<script>
-// ----------------------
-// 1. UTM 파라미터 추출
-// ----------------------
-const urlParams = new URLSearchParams(window.location.search);
-const utm_source = urlParams.get("utm_source") || "none";
-const utm_medium = urlParams.get("utm_medium") || "none";
-const utm_campaign = urlParams.get("utm_campaign") || "none";
-
-// ----------------------
-// 2. 요소 선택
-// ----------------------
-const ctaButton = document.getElementById("ctaButton");
-const formModal = document.getElementById("formModal");
-const submitEmail = document.getElementById("submitEmail");
-const closeModal = document.getElementById("closeModal");
-const userEmail = document.getElementById("userEmail");
-const toast = document.getElementById("successToast");
-
-// ----------------------
-// 3. CTA 버튼 클릭 이벤트
-// ----------------------
-ctaButton.addEventListener("click", () => {
-  formModal.style.display = "flex";
-
-  // GA 이벤트 (Google Analytics)
-  if (typeof gtag === "function") {
-    gtag('event', 'cta_click', {
-      event_category: 'engagement',
-      event_label: 'CTA Button Click',
-      utm_source, utm_medium, utm_campaign
-    });
-  }
-});
-
-// ----------------------
-// 4. 이메일 제출 이벤트
-// ----------------------
-submitEmail.addEventListener("click", () => {
-  const email = userEmail.value.trim();
-  if (!email) {
-    alert("이메일을 입력해주세요!");
-    return;
-  }
-
-  // 제출 이벤트 트래킹
-  if (typeof gtag === "function") {
-    gtag('event', 'form_submit', {
-      event_category: 'conversion',
-      event_label: 'Email Submit',
-      email,
-      utm_source, utm_medium, utm_campaign
-    });
-  }
-
-  // 콘솔 로그(검증용)
-  console.log("Email submitted:", email, utm_source, utm_campaign);
-
-  // 성공 메시지 표시
-  formModal.style.display = "none";
-  toast.style.display = "block";
-  setTimeout(() => toast.style.display = "none", 3500);
-
-  userEmail.value = "";
-});
-
-// ----------------------
-// 5. 모달 닫기
-// ----------------------
-closeModal.addEventListener("click", () => {
-  formModal.style.display = "none";
-});
-</script>
